@@ -18,9 +18,7 @@ steps:
       Write-Host "Pipeline Variable: $(SAG_HOME)"
       Write-Host "Environment Variable: $Env:SAG_HOME"
 
-jobs:
-- job: Build
-  steps:
+steps:
   - task: BatchScript@1
   inputs:
     filename: '${env.SAG_HOME}/common/lib/ant/bin/ant'
