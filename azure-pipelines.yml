@@ -20,7 +20,7 @@ steps:
 
 - task: BatchScript@1
   inputs:
-    filename: '$(Env:SAG_HOME)/common/lib/ant/bin/ant'
+    filename: '$(SAG_HOME)/common/lib/ant/bin/ant'
     arguments: '-DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -DprojectName=${env.JOB_NAME} build'
  
 
