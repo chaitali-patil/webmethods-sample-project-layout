@@ -17,11 +17,16 @@ steps:
       # Write your PowerShell commands here.
       Write-Host "Pipeline Variable: $(SAG_HOME)"
       Write-Host "Environment Variable: $Env:SAG_HOME"
+      Write-Host "Pipeline Variable: $(SAG_CI_HOME)"
+      Write-Host "Environment Variable: $Env:SAG_CI_HOME"
+      Write-Host "Pipeline Variable: $(JOB_NAME)"
+      Write-Host "Environment Variable: $Env:JOB_NAME"
+
 
 - task: BatchScript@1
   inputs:
     filename: '$(SAG_HOME)/common/lib/ant/bin/ant'
-    arguments: '-DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -DprojectName=${env.JOB_NAME} build'
+    arguments: '-DSAGHome=$(SAG_HOME) -DSAG_CI_HOME=$(SAG_CI_HOME) -DprojectName=$(JOB_NAME) build'
  
 
 
