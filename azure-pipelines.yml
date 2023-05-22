@@ -21,6 +21,10 @@ steps:
       Write-Host "Environment Variable: $Env:SAG_CI_HOME"
       Write-Host "Pipeline Variable: $(JOB_NAME)"
       Write-Host "Environment Variable: $Env:JOB_NAME"
+      Write-Host "Making the SAG_CI_HOME available as an environment variable."
+      Write-Host "##vso[task.setvariable variable=SAG_CI_HOME;]$(SAG_CI_HOME)"
+      Write-Host "Making the SAG_HOME available as an environment variable."
+      Write-Host "##vso[task.setvariable variable=SAG_HOME;]$(SAG_HOME)"
 
 
 - task: BatchScript@1
